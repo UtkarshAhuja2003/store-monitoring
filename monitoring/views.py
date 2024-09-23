@@ -3,8 +3,11 @@ from .services import generateReport
 from .models import report
 
 def trigger_report(request, store_id):
-    report_id = generateReport(store_id)
-    return JsonResponse({'report_id': report_id})
+    try:
+        report_id = generateReport(store_id)
+        return JsonResponse({'report_id': report_id})
+    except Exception as e:
+        return JsonResponse({'error': str(e)}, status=500)
 
 def get_report(request, report_id):
     try:
