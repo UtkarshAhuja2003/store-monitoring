@@ -1,4 +1,4 @@
-from .utils import generate_report
+from .utils.report import generate_report
 from .models import report
 
 def generateReport(store_id):

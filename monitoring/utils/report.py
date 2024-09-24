@@ -1,6 +1,9 @@
 import random
+from monitoring.models import store_status
+from monitoring.utils.businessHours import getBusinessHours
 
 def generate_report(store_id):
+    print(getBusinessHours(store_id))
     uptime_last_hour = random.randint(0, 60)
     uptime_last_day = random.randint(0, 24)
     downtime_last_hour = 60 - uptime_last_hour
@@ -15,3 +18,7 @@ def generate_report(store_id):
         'uptime_last_week': uptime_last_day,
         'downtime_last_week': downtime_last_day,
     }
+    
+
+
+    
